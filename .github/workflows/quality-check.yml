@@ -1,4 +1,4 @@
-name: Node.js CI
+name: Quality Check
 
 on:
   push:
@@ -7,19 +7,23 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
+  quality:
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v3
-    - name: Use Node.js
+    
+    - name: Setup Node.js
       uses: actions/setup-node@v3
       with:
         node-version: '18.x'
         cache: 'npm'
+    
     - name: Install dependencies
       run: npm ci
+      
     - name: Install cross-env
       run: npm install --save-dev cross-env
+      
     - name: Run development mode
       run: npm run mode:dev
