@@ -1,6 +1,6 @@
 const userRepository = require('../repositories/userRepository');
 const createResponse = require('./../utils/createResponse')
-const adminFCM = require('../config/certificateFCM');
+//const adminFCM = require('../config/certificateFCM');
 
 exports.registerUserService = async (token, externalUserId,userName) => {
   try {

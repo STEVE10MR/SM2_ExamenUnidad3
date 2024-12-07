@@ -7,7 +7,7 @@ process.on('uncaughtException', err => {
 
 require('dotenv').config({path:"./config.env"})
 const databaseConnect = require('./config/databaseConnect')
-const admin = require('./config/certificateFCM')
+//const admin = require('./config/certificateFCM')
 
 async function init(){
   
