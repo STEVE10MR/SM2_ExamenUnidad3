@@ -9,7 +9,7 @@ on:
 jobs:
   quality:
     runs-on: ubuntu-latest
-    timeout-minutes: 
+    timeout-minutes: 3
 
     steps:
     - uses: actions/checkout@v3
@@ -27,7 +27,7 @@ jobs:
         npm install
         npm install --save-dev cross-env
       
-    - name: Run and verify server starts
+    - name: Verify server startup
       working-directory: ./src
       run: |
-        timeout 15s npm run mode:prod | grep "App running on port" && echo "Server started successfully!" || exit 1
+        npm run mode:prod | grep -m 1 "App running on port" && echo "✅ Server verification completed successfully!"
