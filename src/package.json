@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "mode:dev": "set NODE_ENV=development&& nodemon server.js",
-    "mode:prod": "set NODE_ENV=production&& node server.js",
-    "restore": "set NODE_ENV=development&& node restoreServer.js"
+    "mode:dev": "cross-env NODE_ENV=development nodemon server.js",
+    "mode:prod": "cross-env NODE_ENV=production node server.js",
+    "restore": "cross-env NODE_ENV=development node restoreServer.js"
   },
   "keywords": [],
   "author": "",
@@ -53,5 +53,8 @@
   },
   "engines": {
     "node": ">=18.0.0"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3"
   }
 }
