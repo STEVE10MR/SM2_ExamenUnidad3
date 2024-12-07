@@ -18,12 +18,14 @@ jobs:
       with:
         node-version: '18.x'
         cache: 'npm'
+        cache-dependency-path: 'src/package-lock.json'
     
     - name: Install dependencies
-      run: npm ci
-      
-    - name: Install cross-env
-      run: npm install --save-dev cross-env
+      working-directory: ./src
+      run: |
+        npm install
+        npm install --save-dev cross-env
       
     - name: Run development mode
+      working-directory: ./src
       run: npm run mode:dev
